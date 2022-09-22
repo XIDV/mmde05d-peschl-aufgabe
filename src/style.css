@@ -17,5 +17,26 @@ body {
 
 body > * {
     font-size: 1.2rem;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
+}
+
+header {
+    color: white;
+    background-color: darkseagreen;
+}
+
+h1 {
+    margin: 2rem 0 2rem 2rem;
+}
+
+.headerTitle {
+    font-size: 4rem;
+    margin: 2rem 0;
+}
+
+.solution {
+    padding: 2rem;
+    border: solid thin darkseagreen;
+    border-radius: 1rem;
+    margin: 2rem 0;
 }
