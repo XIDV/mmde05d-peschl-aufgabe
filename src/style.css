@@ -51,4 +51,5 @@ h1 {
 .imgDemoContainer > img {
     display: block;
     width: clamp(200px, 25%, 400px);
+    transition: border-radius 250ms ease-out, transform 250ms ease-out;
 }

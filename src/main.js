@@ -3,6 +3,22 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
 
     // Ausgabe von Begüßung mit aktuellem Datum
     document.getElementById('greetingContainer').textContent = getFullGreetingText();
+
+    // Mouseover-Effekt f. Demo-Bilder
+    let demoImgs = document.getElementsByClassName('demoImg');
+    for(img of demoImgs) {
+        img.addEventListener('mouseover', e => {
+            e.target.style.borderRadius = '1rem';
+            e.target.style.transform = 'scale(1.05)';
+            e.target.src = `src/img/${e.target.name}_blur.jpg`;
+        });
+
+        img.addEventListener('mouseleave', e => {
+            e.target.style.borderRadius = '0';
+            e.target.style.transform = 'scale(1)';
+            e.target.src = `src/img/${e.target.name}.jpg`;
+        });
+    }
 });
 
 
