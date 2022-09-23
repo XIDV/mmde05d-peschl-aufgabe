@@ -40,3 +40,15 @@ h1 {
     border-radius: 1rem;
     margin: 2rem 0;
 }
+
+.imgDemoContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.imgDemoContainer > img {
+    display: block;
+    width: clamp(200px, 25%, 400px);
+}
