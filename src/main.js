@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
 function getFullGreetingText() {
     let myDate = new Date();
 
-    return `${getGreeting(myDate.getHours())} Es ist ${myDate.toLocaleString('default', { weekday: 'long' })}, der ${myDate.getDay()}. ${myDate.toLocaleString('default', { month: 'long' })} ${myDate.getFullYear()}. Dont´t panic! ;-)`;
+    return `${getGreeting(myDate.getHours())} Es ist ${myDate.toLocaleString('default', { weekday: 'long' })}, der ${myDate.getDate()}. ${myDate.toLocaleString('default', { month: 'long' })} ${myDate.getFullYear()}. Dont´t panic! ;-)`;
 
 }
 
