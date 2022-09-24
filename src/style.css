@@ -31,6 +31,7 @@ h1 {
 
 .headerTitle {
     font-size: 4rem;
+    font-weight: bold;
     margin: 2rem 0;
 }
 
@@ -68,4 +69,20 @@ h1 {
     left: 0;
     top: 0;
     opacity: 0;
+}
+
+#demoForm {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.formElementWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+input {
+    max-width: 50%;
 }
