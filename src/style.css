@@ -48,8 +48,24 @@ h1 {
     gap: 1rem;
 }
 
-.imgDemoContainer > img {
+.imgContainer {
+    position: relative;
     display: block;
     width: clamp(200px, 25%, 400px);
-    transition: border-radius 250ms ease-out, transform 250ms ease-out;
+    transition: transform 250ms ease-out;
+}
+
+.imgContainer > .demoImg,
+.imgContainer > #overlay {
+    width: 100%;
+    padding: .5rem;
+    transition: border-radius 350ms ease-in-out, opacity 350ms ease-in-out;
+}
+
+.imgContainer > #overlay {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
 }
