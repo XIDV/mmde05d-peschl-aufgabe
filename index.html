@@ -23,6 +23,23 @@
             </section>
             <section class="solution" id="showMouseover">
                 <h2>2. Bildwechsel bei Mausover</h2>
+                <form id="imgChangeSelection">
+                    <fieldset>
+                        <legend>Bildwechsels mit ...</legend>
+                        <div class="formElementWrapper">
+                            <label for="changeVariant1">HTML-Event-Handler</label>
+                            <input type="radio" name="changeVariant" id="changeVariant1" value="1" checked>
+                        </div>
+                        <div class="formElementWrapper">
+                            <label for="changeVariant2">Eventlistener (Austausch des Bildes)</label>
+                            <input type="radio" name="changeVariant" id="changeVariant2" value="2">
+                        </div>
+                        <div class="formElementWrapper">
+                            <label for="changeVariant3">Eventlistener (Overlay)</label>
+                            <input type="radio" name="changeVariant" id="changeVariant3" value="3">
+                        </div>
+                    </fieldset>
+                </form>
                 <div class="imgDemoContainer">
                     <div class="imgContainer">
                         <img class="demoImg" name="img1" src="src/img/img1.jpg" alt="Demo-Bild 1">
