@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', dclEvent => {
     console.log('Ready');
 
-
+    let imgChangeSelection = 1;
     
     // Ausgabe von Begüßung mit aktuellem Datum +++++++++++++++++++++++++++++ +
     
@@ -12,6 +12,16 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
     */
     document.getElementById('greetingContainer').textContent = getFullGreetingText();
 
+
+    // Verarbeitung der Auswahl der "imgChangeSelection"
+    const imgChangeSelectors = document.getElementById('imgChangeSelection').changeVariant;
+    for(imgChangeSelctor of imgChangeSelectors) {
+        imgChangeSelctor.addEventListener('change', e => {
+            imgChangeSelection = parseInt(e.target.value);
+        });
+    }
+
+    
     
     // Mouseover-Effekt f. Demo-Bilder ++++++++++++++++++++++++++++++++++++++ +
 
