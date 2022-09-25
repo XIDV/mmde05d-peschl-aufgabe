@@ -50,9 +50,17 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
     
 
     // Validierung von Formulareingaben +++++++++++++++++++++++++++++++++++++ +
-    
+    const userDataInputs = document.getElementsByClassName('userDataInput');
+    for(userInput of userDataInputs) {
+        userInput.addEventListener('change', e => {
+            validateInput(e.target);
+        });
+    }
 });
 
+function validateInput(inputElement) {
+    console.log(`Prüfe ${inputElement.id}`);
+}
 
 // Funktionen f. Datumausgabe #################################################
 /*
