@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
     document.getElementById('greetingContainer').textContent = getFullGreetingText();
 
 
-    // Verarbeitung der Auswahl der "imgChangeSelection"
+    // Verarbeitung der Auswahl der "imgChangeSelection" ++++++++++++++++++++ +
     const imgChangeSelectors = document.getElementById('imgChangeSelection').changeVariant;
     for(imgChangeSelctor of imgChangeSelectors) {
         imgChangeSelctor.addEventListener('change', e => {
@@ -42,10 +42,14 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
                 }
                 
             } else {
+                //Variante 1 ------------------------------------------------ +
                 removeAllImgChangeListener(demoImgs);
             }
         });
     } 
+    
+
+    // Validierung von Formulareingaben +++++++++++++++++++++++++++++++++++++ +
     
 });
 
