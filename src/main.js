@@ -52,33 +52,12 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
     // Validierung von Formulareingaben +++++++++++++++++++++++++++++++++++++ +
     const userDataInputs = document.getElementsByClassName('userDataInput');
     for(userInput of userDataInputs) {
+        // Registriere f. beide input-Elemente einen Event-Listener
         userInput.addEventListener('change', e => {
-            validateInput(e.target);
+            validateInput();
         });
     }
 });
-
-function validateInput(inputElement) {
-    const inputPattern = [
-        /^[A-Z,ÄÜÖ]{1}[a-z,äüö]{1,20}\s?([A-Z,ÄÜÖ]{1}?[a-z,äüö]{1,20})?$/,
-        /^[A-Z,a-z,0-9]{1}[A-Z,a-z,0-9,\.,!,#,$,%,&,',*,+,-,/,=,?,^,_,`,{,|,},~]{0,62}[A-Z,a-z,0-9]{1}@[A-Z,a-z,0-9,-]{2,255}\.[a-z]{2,5}$/
-    ];
-    
-    if(inputElement.id == 'userName') {
-        if(!inputPattern[0].test(inputElement.value)) {
-            console.log('Fehlerhafte Eingabe');
-        } else {
-            console.log('OK');
-        }
-
-    } else if(inputElement.id == 'userEmail') {
-        if(!inputPattern[1].test(inputElement.value)) {
-            console.log('Fehlerhafte Eingabe');
-        } else {
-            console.log('OK');
-        }
-    }
-}
 
 // Funktionen f. Datumausgabe #################################################
 /*
@@ -210,4 +189,41 @@ function overlayOut(e) {
     setTimeout(() => {
         overlay.remove();
     }, 250);
+}
+
+
+// Funktionen f. Eingabe-Validierung ##########################################
+
+
+/*
+    Wenn die Eingaben in beide input-Elemente OK sind dann aktiviere den 
+    Senden-Button "sendUserData". Wenn nicht beide OK dann setzt disabled
+    wieder auf true.
+*/
+function validateInput() {
+    if(getCheckResult(document.getElementById('userName'), 0) == true && getCheckResult(document.getElementById('userEmail'), 1)) {
+        document.getElementById('sendUserData').disabled = false;
+    } else {
+        document.getElementById('sendUserData').disabled = true;
+    }
+}
+
+/*
+    Überprüfe die jeweilige Eingabe in das input-Element anhand der via. RegEx 
+    definierten Parameter und liefere einentsprechendes Ergebnis zurück.
+*/
+function getCheckResult(inputElement, index) {
+    const inputPattern = [
+        /*
+            RegEx f. Name erlaubt die Eingabe eines Vor- oder Nachnamens, oder
+            beides
+        */
+        /^[A-Z,ÄÜÖ]{1}[a-z,äüö]{1,20}\s?([A-Z,ÄÜÖ]{1}?[a-z,äüö]{1,20})?$/,
+        /*
+            RegEx f. eine gültige Email-Adresse
+        */
+        /^[A-Z,a-z,0-9]{1}[A-Z,a-z,0-9,\.,!,#,$,%,&,',*,+,-,/,=,?,^,_,`,{,|,},~]{0,62}[A-Z,a-z,0-9]{1}@[A-Z,a-z,0-9,-]{2,255}\.[a-z]{2,5}$/
+    ];
+    // Rückgabe d. Prüfungsergebnis als boolscher Wert.
+    return inputPattern[index].test(inputElement.value);
 }
