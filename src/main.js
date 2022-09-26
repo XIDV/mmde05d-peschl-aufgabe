@@ -61,12 +61,10 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
 function validateInput(inputElement) {
     const inputPattern = [
         /^[A-Z,ÄÜÖ]{1}[a-z,äüö]{1,20}\s?([A-Z,ÄÜÖ]{1}?[a-z,äüö]{1,20})?$/,
-        /email/
+        /^[A-Z,a-z,0-9]{1}[A-Z,a-z,0-9,\.,!,#,$,%,&,',*,+,-,/,=,?,^,_,`,{,|,},~]{0,62}[A-Z,a-z,0-9]{1}@[A-Z,a-z,0-9,-]{2,255}\.[a-z]{2,5}$/
     ];
+    
     if(inputElement.id == 'userName') {
-        console.log(`Prüfe Name`);
-        console.log(inputElement.value);
-        console.log(inputPattern[0].test(inputElement.value));
         if(!inputPattern[0].test(inputElement.value)) {
             console.log('Fehlerhafte Eingabe');
         } else {
@@ -74,7 +72,11 @@ function validateInput(inputElement) {
         }
 
     } else if(inputElement.id == 'userEmail') {
-        console.log(`Prüfe Email`);
+        if(!inputPattern[1].test(inputElement.value)) {
+            console.log('Fehlerhafte Eingabe');
+        } else {
+            console.log('OK');
+        }
     }
 }
 
