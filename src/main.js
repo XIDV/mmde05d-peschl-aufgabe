@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
 
 function validateInput(inputElement) {
     const inputPattern = [
-        /[A-Z,ÄÜÖ]{1}[a-z,äüö]{2,}/,
+        /^[A-Z,ÄÜÖ]{1}[a-z,äüö]{1,20}\s?([A-Z,ÄÜÖ]{1}?[a-z,äüö]{1,20})?$/,
         /email/
     ];
     if(inputElement.id == 'userName') {
