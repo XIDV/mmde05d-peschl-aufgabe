@@ -59,7 +59,23 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
 });
 
 function validateInput(inputElement) {
-    console.log(`Prüfe ${inputElement.id}`);
+    const inputPattern = [
+        /[A-Z,ÄÜÖ]{1}[a-z,äüö]{2,}/,
+        /email/
+    ];
+    if(inputElement.id == 'userName') {
+        console.log(`Prüfe Name`);
+        console.log(inputElement.value);
+        console.log(inputPattern[0].test(inputElement.value));
+        if(!inputPattern[0].test(inputElement.value)) {
+            console.log('Fehlerhafte Eingabe');
+        } else {
+            console.log('OK');
+        }
+
+    } else if(inputElement.id == 'userEmail') {
+        console.log(`Prüfe Email`);
+    }
 }
 
 // Funktionen f. Datumausgabe #################################################
