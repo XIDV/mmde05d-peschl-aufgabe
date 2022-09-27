@@ -193,18 +193,21 @@ function overlayOut(e) {
 
 
 // Funktionen f. Eingabe-Validierung ##########################################
-
-
 /*
     Wenn die Eingaben in beide input-Elemente OK sind dann aktiviere den 
     Senden-Button "sendUserData". Wenn nicht beide OK dann setzt disabled
     wieder auf true.
 */
 function validateInput() {
+    const submitButton = document.getElementById('sendUserData');
     if(getCheckResult(document.getElementById('userName'), 0) == true && getCheckResult(document.getElementById('userEmail'), 1)) {
-        document.getElementById('sendUserData').disabled = false;
+        submitButton.disabled = false;
+        submitButton.style.color = 'white';
+        submitButton.style.backgroundColor = 'darkgreen';
     } else {
-        document.getElementById('sendUserData').disabled = true;
+        submitButton.disabled = true;
+        submitButton.style.color = 'white';
+        submitButton.style.backgroundColor = 'gray';
     }
 }
 
@@ -224,6 +227,34 @@ function getCheckResult(inputElement, index) {
         */
         /^[A-Z,a-z,0-9]{1}[A-Z,a-z,0-9,\.,!,#,$,%,&,',*,+,-,/,=,?,^,_,`,{,|,},~]{0,62}[A-Z,a-z,0-9]{1}@[A-Z,a-z,0-9,-]{2,255}\.[a-z]{2,5}$/
     ];
+    const testResult = inputPattern[index].test(inputElement.value);
+    setMessageBoxText(testResult, index);
     // Rückgabe d. Prüfungsergebnis als boolscher Wert.
-    return inputPattern[index].test(inputElement.value);
+    return testResult;
+}
+
+function setMessageBoxText(testResult,index) {
+    const messages = [
+        'Sorry, wir brauchen deinen Namen.',
+        'Sorry, wir brauchen eine korrekte E-Mail-Adresse von dir. (Für Zeugs.)',
+        'Eingabe OK'
+    ]
+
+    let messageBox;
+    if(index == 0) {
+        messageBox = document.getElementById('nameMessage');
+    } else if(index == 1) {
+        messageBox = document.getElementById('emailMessage');
+    }
+
+    if(testResult == false) {
+        messageBox.textContent = messages[index];
+        messageBox.classList.remove('inputOK');
+        messageBox.classList.add('inputFalse');
+    } else {
+        messageBox.textContent = messages[2];
+        messageBox.classList.remove('inputFalse');
+        messageBox.classList.add('inputOK');
+    }
+
 }

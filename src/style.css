@@ -110,10 +110,17 @@ input.userDataInput {
 }
 
 .formMessageBox {
-    color: red;
     font-size: 1rem;
     font-weight: bold;
     text-align: right;
+}
+
+.inputFalse {
+    color: red;
+}
+
+.inputOK {
+    color: darkgreen;
 }
 
 #sendUserData {
@@ -122,4 +129,9 @@ input.userDataInput {
     border: none;
     border-radius: .5rem;
     margin: 2rem 0 0 0;
+}
+
+#sendUserData:disabled {
+    color: white;
+    background-color: gray;
 }
