@@ -57,6 +57,37 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
             validateInput(e.target.id);
         });
     }
+
+    // Verarbeitung der Nutzereingaben ++++++++++++++++++++++++++++++++++++++ +
+    document.querySelector('#sendUserData').addEventListener('click', e => {
+        e.preventDefault(); // Standardaktion f. default-Aktion deaktiviert!
+        let userInputOutput;
+        /*
+            Prüfe ob bereits ein "userInputOutput"-Container existiert.
+            Wenn ja, dann entferne diesen aus dem DOM.
+        */
+        if(userInputOutput = document.getElementById('userInputOutput')) {
+            userInputOutput.remove();
+        }
+        /*
+            Erforderliche HTML-Elemente erzeugen und die Werte aus den Eingabe-
+            Elementen in diese einfügen.
+            Den ganzen Bums nach dem Formular innerhalb der Sektion "validateForm"
+            in den DOM einhängen.
+        */
+        const uioTitle = document.createElement('h3');
+        const nameText = document.createElement('p');
+        const emailText = document.createElement('p');
+        userInputOutput = document.createElement('div');
+        userInputOutput.setAttribute('id', 'userInputOutput');
+        uioTitle.textContent = 'Ihre Eingaben ...';
+        nameText.textContent = document.getElementById('userName').value;
+        emailText.textContent = document.getElementById('userEmail').value;
+        userInputOutput.appendChild(uioTitle);
+        userInputOutput.appendChild(nameText);
+        userInputOutput.appendChild(emailText);
+        document.getElementById('validateForm').appendChild(userInputOutput);
+    });
 });
 
 // Funktionen f. Datumausgabe #################################################

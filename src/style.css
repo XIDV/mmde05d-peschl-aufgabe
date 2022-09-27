@@ -135,3 +135,14 @@ input.userDataInput {
     color: white;
     background-color: gray;
 }
+
+#userInputOutput {
+    color: darkseagreen;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 2rem 0 0 0;
+}
+
+#userInputOutput > p {
+    margin: 0;;
+}
