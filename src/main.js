@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
     for(userInput of userDataInputs) {
         // Registriere f. beide input-Elemente einen Event-Listener
         userInput.addEventListener('change', e => {
-            validateInput();
+            validateInput(e.target.id);
         });
     }
 });
@@ -193,14 +193,24 @@ function overlayOut(e) {
 
 
 // Funktionen f. Eingabe-Validierung ##########################################
+let inputsStatusOK = [false, false];
 /*
     Wenn die Eingaben in beide input-Elemente OK sind dann aktiviere den 
     Senden-Button "sendUserData". Wenn nicht beide OK dann setzt disabled
     wieder auf true.
 */
-function validateInput() {
+function validateInput(targetID) {
+    const nameInput = document.getElementById('userName');
+    const emailInput = document.getElementById('userEmail');
     const submitButton = document.getElementById('sendUserData');
-    if(getCheckResult(document.getElementById('userName'), 0) == true && getCheckResult(document.getElementById('userEmail'), 1)) {
+
+    if(targetID == 'userName') {
+        inputsStatusOK[0] = getCheckResult(nameInput, 0);
+    } else if(targetID == 'userEmail') {
+        inputsStatusOK[1] = getCheckResult(emailInput, 1);
+    }
+
+    if(inputsStatusOK[0] && inputsStatusOK[1]) {
         submitButton.disabled = false;
         submitButton.style.color = 'white';
         submitButton.style.backgroundColor = 'darkgreen';
@@ -221,7 +231,7 @@ function getCheckResult(inputElement, index) {
             RegEx f. Name erlaubt die Eingabe eines Vor- oder Nachnamens, oder
             beides
         */
-        /^[A-Z,ÄÜÖ]{1}[a-z,äüö]{1,20}\s?([A-Z,ÄÜÖ]{1}?[a-z,äüö]{1,20})?$/,
+        /^[A-Z,ÄÜÖ]{1}[a-z,ß-ü]{1,20}\s?([A-Z,ÄÜÖ]{1}?[a-z,ß-ü]{1,20})?$/,
         /*
             RegEx f. eine gültige Email-Adresse
         */
