@@ -274,6 +274,10 @@ function getCheckResult(inputElement, index) {
     return testResult;
 }
 
+/*
+    Konfiguration, wann welche Text ausgabe in welche messageBox,
+    als Reaktion auf Benutzereingaben angezeigt werden.
+*/
 function setMessageBoxText(testResult,index) {
     const messages = [
         'Sorry, wir brauchen deinen Namen.',
