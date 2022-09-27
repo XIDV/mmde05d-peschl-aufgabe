@@ -52,6 +52,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 1rem;
+    margin: 2rem 0 0 0;
 }
 
 .imgContainer {
@@ -81,13 +82,44 @@ h1 {
     margin: 0 auto;
 }
 
+fieldset {
+    border: solid thin;
+    border-radius: .5rem;
+}
+
+#demoForm > fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .formElementWrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 1rem 0;
+    margin: 1rem 0 .5rem;
 }
 
-input {
-    max-width: 50%;
+input.userDataInput {
+    width: clamp(10rem, 50%, 30rem);
+    height: 3rem;
+    font-size: 1.25rem;
+    padding: 0 .5rem;
+    border: solid thin;
+    border-radius: .5rem;
+}
+
+.formMessageBox {
+    color: red;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+#sendUserData {
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: none;
+    border-radius: .5rem;
+    margin: 2rem 0 0 0;
 }
