@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
         lation des Attributs "textContent". Der Rückgabewert der Funktion
         "getFullGreetingText" wird als Wert für dieses Attribut verwendet.
     */
-    document.getElementById('greetingContainer').textContent = getFullGreetingText();
+    document.getElementById('greetingContainer').innerHTML = getFullGreetingText();
 
 
     // Verarbeitung der Auswahl der "imgChangeSelection" ++++++++++++++++++++ +
@@ -100,7 +100,7 @@ function getFullGreetingText() {
     return `${getGreeting(myDate.getHours())} Es ist 
         ${myDate.toLocaleString('default', { weekday: 'long' })}, der 
         ${myDate.getDate()}. ${myDate.toLocaleString('default', { month: 'long' })} 
-        ${myDate.getFullYear()}. Dont´t panic! ;-)`;
+        ${myDate.getFullYear()}. <span class="important">Dont´t panic! ;-)</span>`;
 }
 
 // Gebe einen tageszeitabhängigen Begrüßungs-String zurück.
