@@ -1,3 +1,8 @@
+/*
+    Lösung der ESA-6 -- MMDE05D-XX1-N01
+    Sebastian Peschl | 800550686 | 0186.02
+*/
+
 document.addEventListener('DOMContentLoaded', dclEvent => {
     console.log('Ready');
 
@@ -90,6 +95,11 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
     });
 });
 
+
+// Globale Variablen ##########################################################
+let inputsStatusOK = [false, false];
+
+
 // Funktionen f. Datumausgabe #################################################
 /*
     Erstelle auf Basis eines Date-Objektes einen String bestehend aus Begrüßung
@@ -129,8 +139,6 @@ function removeAllImgChangeListener(demoImgs) {
     }
 }
 
-
-
 // Funktionen f. Bildwechsel-Variante 1 +++++++++++++++++++++++++++++++++++++ +
 function overImgHandler(element) {
     element.src = `src/img/${element.name}_blur.jpg`;
@@ -140,9 +148,7 @@ function outImgHandler(element) {
     element.src = `src/img/${element.name}.jpg`;
 }
 
-
 // Funktionen für Bildwechsel-Variante 2 ++++++++++++++++++++++++++++++++++++ +
-
 function changeImgOver(e) {
     e.target.style.borderRadius = '1rem';
     e.target.style.transform = 'scale(1.05)';
@@ -224,7 +230,6 @@ function overlayOut(e) {
 
 
 // Funktionen f. Eingabe-Validierung ##########################################
-let inputsStatusOK = [false, false];
 /*
     Wenn die Eingaben in beide input-Elemente OK sind dann aktiviere den 
     Senden-Button "sendUserData". Wenn nicht beide OK dann setzt disabled
@@ -298,5 +303,4 @@ function setMessageBoxText(testResult,index) {
         messageBox.classList.remove('inputFalse');
         messageBox.classList.add('inputOK');
     }
-
 }
