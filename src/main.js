@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', dclEvent => {
     for(userInput of userDataInputs) {
         // Registriere f. beide input-Elemente einen Event-Listener
         userInput.addEventListener('change', e => {
-            validateInput(e.target.id);
+            validateInput(e.target.id, userDataInputs);
         });
     }
 
@@ -230,15 +230,12 @@ let inputsStatusOK = [false, false];
     Senden-Button "sendUserData". Wenn nicht beide OK dann setzt disabled
     wieder auf true.
 */
-function validateInput(targetID) {
-    const nameInput = document.getElementById('userName');
-    const emailInput = document.getElementById('userEmail');
+function validateInput(targetID, userDataInputs) {
     const submitButton = document.getElementById('sendUserData');
-
-    if(targetID == 'userName') {
-        inputsStatusOK[0] = getCheckResult(nameInput, 0);
-    } else if(targetID == 'userEmail') {
-        inputsStatusOK[1] = getCheckResult(emailInput, 1);
+    if(targetID == userDataInputs[0].name) {
+        inputsStatusOK[0] = getCheckResult(userDataInputs[0], 0);
+    } else if(targetID == userDataInputs[1].name) {
+        inputsStatusOK[1] = getCheckResult(userDataInputs[1], 1);
     }
 
     if(inputsStatusOK[0] && inputsStatusOK[1]) {
